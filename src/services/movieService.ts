@@ -43,6 +43,7 @@ export async function fetchFirstMovies(): Promise<FetchMoviesProps> {
       Authorization: `Bearer ${key}`
     }
   });
+  console.log(response.data);
   return response.data;
 }
 

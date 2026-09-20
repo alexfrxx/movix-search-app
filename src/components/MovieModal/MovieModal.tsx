@@ -49,12 +49,22 @@ export default function MovieModal({ movie, onClose }: MovieModalProps) {
         />
         <div className={css.content}>
           <h2>{movie.title}</h2>
-          <p>{movie.overview}</p>
           <p>
             <strong>Release Date:</strong> {movie.release_date}
           </p>
+          <div>
+            <h3>Overview:</h3>
+            <p>{movie.overview}</p>
+          </div>
+          <p>
+            <strong>Original language:</strong>{' '}
+            {movie.original_language.toUpperCase()}
+          </p>
           <p>
             <strong>Rating:</strong> {movie.vote_average.toFixed(1)}
+          </p>
+          <p>
+            <strong>Votes:</strong> {movie.vote_count}
           </p>
         </div>
       </div>

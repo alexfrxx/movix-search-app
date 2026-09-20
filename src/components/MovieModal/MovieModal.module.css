@@ -16,7 +16,7 @@
   width: 75vw;
   display: flex;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .image {
@@ -28,7 +28,7 @@
 }
 
 .content {
-  background-color: rgba(255, 255, 255, 0.87);
+  background-color: rgba(255, 255, 255, 0.9);
   color: #000;
   padding: 40px;
   overflow-y: auto;
@@ -36,7 +36,7 @@
   display: flex;
   border-radius: 0 10px 10px 0;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 
 .content h2 {
@@ -50,6 +50,17 @@
   margin: 0;
   font-size: 20px;
   line-height: 1.4;
+}
+
+.content h3,
+.content strong {
+  font-weight: 600;
+  font-size: 21px;
+  color: black;
+}
+
+.content h3 {
+  margin-bottom: 5px;
 }
 
 .closeButton {
