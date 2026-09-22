@@ -10,12 +10,17 @@ import Loader from '../Loader/Loader';
 import MovieModal from '../MovieModal/MovieModal';
 import type { Movie } from '../../types/movie';
 import fetchMovies from '../../services/movieService';
+import {
+  fetchTopRatedMovies,
+  fetchTrendingMovies
+} from '../../services/movieService';
 import type { ReactPaginateProps } from 'react-paginate';
 import type { ComponentType } from 'react';
-import TrendingMovieGrid from '../TrendingMovieGrid/TrendingMovieGrid';
+import TypesMovieGrid from '../TypesMovieGrid/TypesMovieGrid';
 import Hero from '../Hero/Hero';
 import Footer from '../Footer/Footer';
 import CommingSoon from '../CommingSoon/CommingSoon';
+import Header from '../Header/Header';
 
 type ModuleWithDefault<T> = { default: T };
 
@@ -57,6 +62,7 @@ export default function AppBody() {
 
   return (
     <>
+      <Header />
       <Hero />
       <SearchBar
         onSubmit={(query) => {
@@ -66,7 +72,16 @@ export default function AppBody() {
       />
       <Toaster position="top-center" reverseOrder={false} />
       <CommingSoon onSelect={openModal} />
-      <TrendingMovieGrid onSelect={openModal} />
+      <TypesMovieGrid
+        onSelect={openModal}
+        fetchFn={fetchTrendingMovies}
+        title="Trending"
+      />
+      <TypesMovieGrid
+        onSelect={openModal}
+        title="Top-rated"
+        fetchFn={fetchTopRatedMovies}
+      />
       {isLoading && <Loader />}
       {isError ? (
         <ErrorMessage />

@@ -1,33 +1,46 @@
 import { useQuery } from '@tanstack/react-query';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Scrollbar } from 'swiper/modules';
-import { fetchFirstMovies } from '../../services/movieService';
+import { Scrollbar, Mousewheel, FreeMode } from 'swiper/modules';
 import type { Movie } from '../../types/movie';
-import css from './TrendingMovieGrid.module.css';
+import type { FetchMoviesProps } from '../../services/movieService';
+import css from './TypesMovieGrid.module.css';
 import Container from '../Container/Container';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 
-interface TrendingMovieProps {
+interface TypesMovieProps {
   onSelect: (movie: Movie) => void;
+  fetchFn: () => Promise<FetchMoviesProps>;
+  title: string;
 }
 
-export default function TrendingMovieGrid({ onSelect }: TrendingMovieProps) {
+export default function TypesMovieGrid({
+  onSelect,
+  fetchFn,
+  title
+}: TypesMovieProps) {
   const { data } = useQuery({
-    queryKey: ['movie'],
-    queryFn: () => fetchFirstMovies()
+    queryKey: ['movie', title],
+    queryFn: () => fetchFn()
   });
 
   return (
     <section className={css.trendingMovie}>
       <Container>
         <div className={css.container}>
-          <h2 className={css.title}>Trending</h2>
+          <h2 className={css.title}>{title}</h2>
           <Swiper
             spaceBetween={20}
-            slidesPerView={6.5}
-            modules={[Scrollbar]}
+            slidesPerView={6.4}
+            modules={[Scrollbar, Mousewheel]}
             scrollbar={{ draggable: true }}
+            mousewheel={{
+              forceToAxis: true
+            }}
+            freeMode={{
+              enabled: true,
+              momentum: true
+            }}
           >
             {data?.results.map((movie) => (
               <SwiperSlide

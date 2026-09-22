@@ -10,7 +10,7 @@ interface FetchMovieParams {
   page: number;
   str: string;
 }
-interface FetchMoviesProps {
+export interface FetchMoviesProps {
   page: number;
   results: Movie[];
   total_pages: number;
@@ -33,7 +33,7 @@ export default async function fetchMovies({
   return response.data;
 }
 
-export async function fetchFirstMovies(): Promise<FetchMoviesProps> {
+export async function fetchTrendingMovies(): Promise<FetchMoviesProps> {
   const response = await axios.get<FetchMoviesProps>(baseUrl, {
     params: {
       page: 1,
@@ -43,7 +43,7 @@ export async function fetchFirstMovies(): Promise<FetchMoviesProps> {
       Authorization: `Bearer ${key}`
     }
   });
-  console.log(response.data);
+
   return response.data;
 }
 
@@ -59,6 +59,22 @@ export async function fetchCommingSoonMovies(): Promise<FetchMoviesProps> {
       }
     }
   );
-  console.log(response.data);
+
+  return response.data;
+}
+
+export async function fetchTopRatedMovies(): Promise<FetchMoviesProps> {
+  const response = await axios.get<FetchMoviesProps>(
+    `${upcomingUrl}/top_rated`,
+    {
+      params: {
+        page: 1
+      },
+      headers: {
+        Authorization: `Bearer ${key}`
+      }
+    }
+  );
+
   return response.data;
 }
