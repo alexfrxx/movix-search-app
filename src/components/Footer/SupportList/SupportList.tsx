@@ -1,23 +1,30 @@
 import css from './SupportList.module.css';
+import { Link } from 'react-router';
 
-interface SupportListProps {
-  items: String[];
-  title: string;
-}
-
-export default function SupportList({ items, title }: SupportListProps) {
+export default function SupportList() {
   return (
     <ul className={css.list}>
-      <h3>{title}</h3>
-      {items.map((i) => {
-        return (
-          <li>
-            <a href="#" target="blank" className={css.supportLink}>
-              {i}
-            </a>
-          </li>
-        );
-      })}
+      <h3>About</h3>
+      <li>
+        <Link to="/terms" className={css.supportLink}>
+          Terms
+        </Link>
+      </li>
+      <li>
+        <Link to="/policy" className={css.supportLink}>
+          Privacy policy
+        </Link>
+      </li>
+      <li>
+        <Link to="/support" className={css.supportLink}>
+          Support
+        </Link>
+      </li>
+      <li>
+        <Link to="/contact" className={css.supportLink}>
+          Contact us
+        </Link>
+      </li>
     </ul>
   );
 }

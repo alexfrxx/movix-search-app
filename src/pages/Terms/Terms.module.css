@@ -1,0 +1,49 @@
+.terms {
+  padding: 70px 0;
+}
+
+.terms h1 {
+  color: white;
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.terms h2 {
+  color: white;
+  font-weight: 600;
+  font-size: 21px;
+  margin: 30px 0 0 0;
+}
+
+.terms h3 {
+  margin: 30px 0 0 0;
+  color: white;
+  font-weight: 600;
+  font-size: 19px;
+}
+
+.terms h4 {
+  margin: 30px 0 0 0;
+  color: white;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.terms p {
+  color: white;
+  margin: 25px 0 0 0;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.red {
+  color: red;
+}
+
+.terms ul {
+  padding-left: 40px;
+}
+
+.terms .globalList {
+  padding: 0;
+}

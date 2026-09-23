@@ -4,9 +4,7 @@ import SupportList from './SupportList/SupportList';
 import DownloadList from './DownloadList/DownloadList';
 import FooterLogo from './FooterLogo/FooterLogo';
 import Copyright from './Copyright/Copyright';
-
-const aboutLinks = ['FAQ', 'Blog', 'Support', 'Contact us'];
-const contactLinks = ['Discord', 'FaceBook', 'Linkedin', 'X(Twitter)'];
+import SocialList from './SocialList/SocialList';
 
 export default function Footer() {
   return (
@@ -17,10 +15,10 @@ export default function Footer() {
             <FooterLogo />
           </li>
           <li className={css.item}>
-            <SupportList items={aboutLinks} title="About" />
+            <SupportList />
           </li>
           <li className={css.item}>
-            <SupportList items={contactLinks} title="Stay tuned" />
+            <SocialList />
           </li>
           <li className={css.item}>
             <DownloadList />

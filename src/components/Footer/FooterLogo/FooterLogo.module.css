@@ -1,12 +1,12 @@
 .icon {
-  margin-right: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 7px;
 }
 
 .logo {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 4px;
   color: white;
   font-size: 30px;
   font-weight: 600;

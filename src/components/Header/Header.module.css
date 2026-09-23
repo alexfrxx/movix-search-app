@@ -1,0 +1,44 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0 0 0;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon {
+  margin-bottom: 7px;
+}
+
+.link p {
+  color: white;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.red {
+  color: red;
+  font-size: 27px;
+}
+
+.list {
+  display: flex;
+  gap: 35px;
+}
+
+.item {
+  color: white;
+  font-size: 18px;
+  color: #9094a6;
+  transition: opacity 0.4s ease;
+}
+
+.item:hover,
+.item:focus {
+  opacity: 0.7;
+}
