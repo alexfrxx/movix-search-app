@@ -1,22 +1,22 @@
-import css from './CommingSoon.module.css';
+import css from './ComingSoon.module.css';
 import { useQuery } from '@tanstack/react-query';
 import type { Movie } from '../../types/movie';
 import type { FetchMoviesProps } from '../../services/movieService';
 import Container from '../Container/Container';
 
-interface CommingSoonProps {
+interface ComingSoonProps {
   onSelect: (movie: Movie) => void;
   fetchFn: () => Promise<FetchMoviesProps>;
   title: string;
   queryKey: string;
 }
 
-export default function CommingSoon({
+export default function ComingSoon({
   onSelect,
   fetchFn,
   title,
   queryKey
-}: CommingSoonProps) {
+}: ComingSoonProps) {
   const { data } = useQuery({
     queryKey: [queryKey],
     queryFn: () => fetchFn()

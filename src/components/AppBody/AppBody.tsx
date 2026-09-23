@@ -21,7 +21,7 @@ import type { ComponentType } from 'react';
 import TypesMovieGrid from '../TypesMovieGrid/TypesMovieGrid';
 import Hero from '../Hero/Hero';
 import Footer from '../Footer/Footer';
-import CommingSoon from '../CommingSoon/CommingSoon';
+import ComingSoon from '../ComingSoon/ComingSoon';
 import Header from '../Header/Header';
 
 type ModuleWithDefault<T> = { default: T };
@@ -73,7 +73,7 @@ export default function AppBody() {
         }}
       />
       <Toaster position="top-center" reverseOrder={false} />
-      <CommingSoon
+      <ComingSoon
         onSelect={openModal}
         fetchFn={fetchPlayingMovies}
         title="Now in Cinemas"
@@ -89,7 +89,7 @@ export default function AppBody() {
         title="Top-rated"
         fetchFn={fetchTopRatedMovies}
       />
-      <CommingSoon
+      <ComingSoon
         onSelect={openModal}
         fetchFn={fetchCommingSoonMovies}
         title="Coming Soon"
