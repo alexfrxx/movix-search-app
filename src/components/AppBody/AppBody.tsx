@@ -12,7 +12,9 @@ import type { Movie } from '../../types/movie';
 import fetchMovies from '../../services/movieService';
 import {
   fetchTopRatedMovies,
-  fetchTrendingMovies
+  fetchTrendingMovies,
+  fetchCommingSoonMovies,
+  fetchPlayingMovies
 } from '../../services/movieService';
 import type { ReactPaginateProps } from 'react-paginate';
 import type { ComponentType } from 'react';
@@ -71,7 +73,12 @@ export default function AppBody() {
         }}
       />
       <Toaster position="top-center" reverseOrder={false} />
-      <CommingSoon onSelect={openModal} />
+      <CommingSoon
+        onSelect={openModal}
+        fetchFn={fetchCommingSoonMovies}
+        title="Coming Soon"
+        queryKey="upcoming-movies"
+      />
       <TypesMovieGrid
         onSelect={openModal}
         fetchFn={fetchTrendingMovies}
@@ -81,6 +88,12 @@ export default function AppBody() {
         onSelect={openModal}
         title="Top-rated"
         fetchFn={fetchTopRatedMovies}
+      />
+      <CommingSoon
+        onSelect={openModal}
+        fetchFn={fetchPlayingMovies}
+        title="Now in Cinemas"
+        queryKey="now-playing-movies"
       />
       {isLoading && <Loader />}
       {isError ? (

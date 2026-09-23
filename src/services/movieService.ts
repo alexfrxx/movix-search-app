@@ -4,7 +4,7 @@ import type { Movie } from '../types/movie';
 const key = import.meta.env.VITE_TMDB_TOKEN;
 const url = 'https://api.themoviedb.org/3/search/movie';
 const baseUrl = 'https://api.themoviedb.org/3/discover/movie';
-const upcomingUrl = 'https://api.themoviedb.org/3/movie';
+const movieUrl = 'https://api.themoviedb.org/3/movie';
 
 interface FetchMovieParams {
   page: number;
@@ -48,27 +48,39 @@ export async function fetchTrendingMovies(): Promise<FetchMoviesProps> {
 }
 
 export async function fetchCommingSoonMovies(): Promise<FetchMoviesProps> {
-  const response = await axios.get<FetchMoviesProps>(
-    `${upcomingUrl}/upcoming`,
-    {
-      params: {
-        page: 1
-      },
-      headers: {
-        Authorization: `Bearer ${key}`
-      }
+  const response = await axios.get<FetchMoviesProps>(`${movieUrl}/upcoming`, {
+    params: {
+      page: 1
+    },
+    headers: {
+      Authorization: `Bearer ${key}`
     }
-  );
+  });
 
   return response.data;
 }
 
 export async function fetchTopRatedMovies(): Promise<FetchMoviesProps> {
+  const response = await axios.get<FetchMoviesProps>(`${movieUrl}/top_rated`, {
+    params: {
+      page: 1
+    },
+    headers: {
+      Authorization: `Bearer ${key}`
+    }
+  });
+
+  return response.data;
+}
+
+export async function fetchPlayingMovies(): Promise<FetchMoviesProps> {
   const response = await axios.get<FetchMoviesProps>(
-    `${upcomingUrl}/top_rated`,
+    `${movieUrl}/now_playing`,
     {
       params: {
-        page: 1
+        page: 1,
+        region: 'PL',
+        language: 'en-US'
       },
       headers: {
         Authorization: `Bearer ${key}`

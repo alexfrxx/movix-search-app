@@ -1,23 +1,31 @@
 import css from './CommingSoon.module.css';
-import { fetchCommingSoonMovies } from '../../services/movieService';
 import { useQuery } from '@tanstack/react-query';
 import type { Movie } from '../../types/movie';
+import type { FetchMoviesProps } from '../../services/movieService';
 import Container from '../Container/Container';
 
 interface CommingSoonProps {
   onSelect: (movie: Movie) => void;
+  fetchFn: () => Promise<FetchMoviesProps>;
+  title: string;
+  queryKey: string;
 }
 
-export default function CommingSoon({ onSelect }: CommingSoonProps) {
+export default function CommingSoon({
+  onSelect,
+  fetchFn,
+  title,
+  queryKey
+}: CommingSoonProps) {
   const { data } = useQuery({
-    queryKey: ['upcoming-movies'],
-    queryFn: () => fetchCommingSoonMovies()
+    queryKey: [queryKey],
+    queryFn: () => fetchFn()
   });
 
   return (
     <section className={css.commingSoon}>
       <Container>
-        <h2 className={css.title}>Comming Soon</h2>
+        <h2 className={css.title}>{title}</h2>
       </Container>
       <div className={css.container}>
         <ul className={css.grid}>
