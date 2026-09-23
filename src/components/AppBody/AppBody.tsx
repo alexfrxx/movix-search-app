@@ -75,9 +75,9 @@ export default function AppBody() {
       <Toaster position="top-center" reverseOrder={false} />
       <CommingSoon
         onSelect={openModal}
-        fetchFn={fetchCommingSoonMovies}
-        title="Coming Soon"
-        queryKey="upcoming-movies"
+        fetchFn={fetchPlayingMovies}
+        title="Now in Cinemas"
+        queryKey="now-playing-movies"
       />
       <TypesMovieGrid
         onSelect={openModal}
@@ -91,9 +91,9 @@ export default function AppBody() {
       />
       <CommingSoon
         onSelect={openModal}
-        fetchFn={fetchPlayingMovies}
-        title="Now in Cinemas"
-        queryKey="now-playing-movies"
+        fetchFn={fetchCommingSoonMovies}
+        title="Coming Soon"
+        queryKey="upcoming-movies"
       />
       {isLoading && <Loader />}
       {isError ? (
