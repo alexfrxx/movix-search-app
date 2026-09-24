@@ -27,6 +27,7 @@ export default function MovieGrid({ onSelect, movies }: MovieGridProps) {
                   loading="lazy"
                 />
                 <h2 className={css.subtitle}>{movie.title}</h2>
+                <p className={css.date}>{movie.release_date}</p>
               </div>
             </li>
           ))}

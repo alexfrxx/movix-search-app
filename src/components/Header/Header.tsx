@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+import { RiMenuFold3Line } from 'react-icons/ri';
 import css from './Header.module.css';
 import Container from '../Container/Container';
 
@@ -15,23 +16,43 @@ export default function Header() {
               Movi<span className={css.red}>X</span>
             </p>
           </Link>
-          <ul className={css.list}>
-            <li>
-              <Link to="/" className={css.item}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" className={css.item}>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className={css.item}>
-                Contact
-              </Link>
-            </li>
-          </ul>
+
+          <div className={css.menu}>
+            <RiMenuFold3Line className={css.menuIcon} />
+
+            <ul className={css.list}>
+              <li>
+                <Link to="/" className={css.item}>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className={css.item}>
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className={css.item}>
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link to="/policy" className={css.item}>
+                  Privacy policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className={css.item}>
+                  Terms
+                </Link>
+              </li>
+              <li>
+                <Link to="/support" className={css.item}>
+                  Support
+                </Link>
+              </li>
+            </ul>
+          </div>
         </nav>
       </Container>
     </header>

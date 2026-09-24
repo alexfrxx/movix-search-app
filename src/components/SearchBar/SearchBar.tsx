@@ -1,6 +1,6 @@
+import { toast } from 'react-hot-toast';
 import styles from './SearchBar.module.css';
 import Container from '../Container/Container';
-import { toast } from 'react-hot-toast';
 
 interface SearchBarProps {
   onSubmit: (value: string) => void;

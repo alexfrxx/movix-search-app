@@ -1,56 +1,22 @@
-import ReactPaginateModule from 'react-paginate';
-import { keepPreviousData, useQuery } from '@tanstack/react-query';
-import { useState, useEffect } from 'react';
-import { Toaster, toast } from 'react-hot-toast';
-import css from './AppBody.module.css';
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import SearchBar from '../SearchBar/SearchBar';
-import MovieGrid from '../MovieGrid/MovieGrid';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import Loader from '../Loader/Loader';
 import MovieModal from '../MovieModal/MovieModal';
 import type { Movie } from '../../types/movie';
-import fetchMovies from '../../services/movieService';
 import {
   fetchTopRatedMovies,
   fetchTrendingMovies,
   fetchCommingSoonMovies,
   fetchPlayingMovies
 } from '../../services/movieService';
-import type { ReactPaginateProps } from 'react-paginate';
-import type { ComponentType } from 'react';
 import TypesMovieGrid from '../TypesMovieGrid/TypesMovieGrid';
 import Hero from '../Hero/Hero';
-import Footer from '../Footer/Footer';
 import ComingSoon from '../ComingSoon/ComingSoon';
-import Header from '../Header/Header';
-
-type ModuleWithDefault<T> = { default: T };
-
-const ReactPaginate = (
-  ReactPaginateModule as unknown as ModuleWithDefault<
-    ComponentType<ReactPaginateProps>
-  >
-).default;
 
 export default function AppBody() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
-  const [query, setQuery] = useState('');
-  const [page, setPage] = useState(1);
-
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ['query', query, page],
-    queryFn: () => fetchMovies({ str: query, page }),
-    enabled: Boolean(query),
-    placeholderData: keepPreviousData
-  });
-
-  useEffect(() => {
-    if (query && data && data?.results.length === 0) {
-      toast.error('No movies found for your request.');
-      setQuery('');
-    }
-  }, [data, query]);
+  const navigate = useNavigate();
 
   const openModal = (movie: Movie) => {
     setSelectedMovie(movie);
@@ -64,15 +30,12 @@ export default function AppBody() {
 
   return (
     <>
-      <Header />
       <Hero />
       <SearchBar
         onSubmit={(query) => {
-          setQuery(query);
-          setPage(1);
+          navigate(`/movies?query=${encodeURIComponent(query)}`);
         }}
       />
-      <Toaster position="top-center" reverseOrder={false} />
       <ComingSoon
         onSelect={openModal}
         fetchFn={fetchPlayingMovies}
@@ -95,33 +58,10 @@ export default function AppBody() {
         title="Coming Soon"
         queryKey="upcoming-movies"
       />
-      {isLoading && <Loader />}
-      {isError ? (
-        <ErrorMessage />
-      ) : (
-        <MovieGrid
-          onSelect={openModal}
-          movies={data?.results ?? []}
-          title={data?.results ? query : ''}
-        />
-      )}
-      {query && data && data.total_pages > 1 && (
-        <ReactPaginate
-          pageCount={data?.total_pages ?? 0}
-          onPageChange={({ selected }) => setPage(selected + 1)}
-          pageRangeDisplayed={5}
-          nextLabel="→"
-          previousLabel="←"
-          activeClassName={css.active}
-          containerClassName={css.pagination}
-          marginPagesDisplayed={1}
-          forcePage={page - 1}
-        />
-      )}
+
       {isModalOpen && selectedMovie && (
         <MovieModal onClose={closeModal} movie={selectedMovie}></MovieModal>
       )}
-      <Footer />
     </>
   );
 }
