@@ -47,3 +47,9 @@
 .terms .globalList {
   padding: 0;
 }
+
+@media (max-width: 630px) {
+  .terms ul {
+    padding-left: 0;
+  }
+}

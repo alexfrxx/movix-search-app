@@ -7,7 +7,6 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import MainLayout from './layouts/MainLayout/MainLayout';
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import Movies from './pages/Movies/Movies';
-import MoviesLayout from './layouts/MoviesLayout/MoviesLayout';
 
 export default function App() {
   return (
@@ -23,9 +22,7 @@ export default function App() {
           <Route path="/policy" element={<PrivacyPolicy />} />
           <Route path="support" />
           <Route path="*" element={<NotFound />} />
-        </Route>
-        <Route path="/movies" element={<MoviesLayout />}>
-          <Route index element={<Movies />} />
+          <Route path="/movies" element={<Movies />} />
         </Route>
       </Routes>
     </>

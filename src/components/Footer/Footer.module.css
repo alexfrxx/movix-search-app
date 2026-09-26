@@ -5,9 +5,22 @@
 .list {
   display: flex;
   align-items: flex-start;
-  gap: 80px;
+  justify-content: space-between;
+  gap: 40px;
 }
 
-.item {
-  width: calc((100% - 240px) / 4);
+@media (min-width: 880px) {
+  .item {
+    width: calc((100% - 240px) / 4);
+  }
+}
+
+@media (max-width: 630px) {
+  .footer {
+    padding: 40px 0;
+  }
+  .list {
+    flex-direction: column;
+    gap: 50px;
+  }
 }
