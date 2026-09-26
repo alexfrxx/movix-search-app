@@ -2,6 +2,7 @@ import ReactPaginateModule from 'react-paginate';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
+import { useSearchParams } from 'react-router';
 import css from './Movies.module.css';
 import MovieGrid from '../../components/MovieGrid/MovieGrid';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
@@ -11,7 +12,6 @@ import type { Movie } from '../../types/movie';
 import fetchMovies from '../../services/movieService';
 import type { ReactPaginateProps } from 'react-paginate';
 import type { ComponentType } from 'react';
-import { useSearchParams } from 'react-router';
 
 type ModuleWithDefault<T> = { default: T };
 
@@ -58,34 +58,36 @@ export default function Movies() {
   };
 
   return (
-    <section>
+    <>
       <Toaster position="top-center" reverseOrder={false} />
-      {isLoading && <Loader />}
-      {query && data && data.total_pages > 1 && (
-        <ReactPaginate
-          pageCount={data?.total_pages ?? 0}
-          onPageChange={({ selected }) => setPage(selected + 1)}
-          pageRangeDisplayed={5}
-          nextLabel="→"
-          previousLabel="←"
-          activeClassName={css.active}
-          containerClassName={css.pagination}
-          marginPagesDisplayed={1}
-          forcePage={page - 1}
-        />
-      )}
-      {isError ? (
-        <ErrorMessage />
-      ) : (
-        <MovieGrid
-          onSelect={openModal}
-          movies={data?.results ?? []}
-          title={data?.results ? query : ''}
-        />
-      )}
+      <div>
+        {isLoading && <Loader />}
+        {isError ? (
+          <ErrorMessage />
+        ) : (
+          <MovieGrid
+            onSelect={openModal}
+            movies={data?.results ?? []}
+            title={data?.results ? query : ''}
+          />
+        )}
+        {query && data && data.total_pages > 1 && (
+          <ReactPaginate
+            pageCount={data?.total_pages ?? 0}
+            onPageChange={({ selected }) => setPage(selected + 1)}
+            pageRangeDisplayed={5}
+            nextLabel="→"
+            previousLabel="←"
+            activeClassName={css.active}
+            containerClassName={css.pagination}
+            marginPagesDisplayed={1}
+            forcePage={page - 1}
+          />
+        )}
+      </div>
       {isModalOpen && selectedMovie && (
         <MovieModal onClose={closeModal} movie={selectedMovie}></MovieModal>
       )}
-    </section>
+    </>
   );
 }

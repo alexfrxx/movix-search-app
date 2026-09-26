@@ -1,15 +1,17 @@
 .pagination {
+  padding: 30px 0 30px 0;
+  top: 0;
   display: flex;
   justify-content: center;
+  top: 30px;
   gap: 6px;
-  margin: 30px 0 30px 0;
-  list-style: none;
+  border-top: 1px solid #9094a6;
 }
 
 .pagination li {
   padding: 5px 10px;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid #9094a6;
   cursor: pointer;
 }
 
@@ -26,7 +28,8 @@
 
 .active {
   font-weight: 900;
-  background-color: white;
+  background-color: red;
+  border: 1px solid black;
 }
 
 .active a {

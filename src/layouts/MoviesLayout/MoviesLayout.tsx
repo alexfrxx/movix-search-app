@@ -1,19 +1,17 @@
 import { Outlet } from 'react-router';
 import Footer from '../../components/Footer/Footer';
-import SideBar from '../../components/SideBar/SideBar';
-import css from './MoviesLayout.module.css';
+
 import Container from '../../components/Container/Container';
+import Header from '../../components/Header/Header';
 
 export default function MoviesLayout() {
   return (
-    <section className={css.movies}>
+    <>
+      <Header />
       <Container>
-        <div className={css.wrapper}>
-          <SideBar />
-          <Outlet />
-        </div>
+        <Outlet />
       </Container>
       <Footer />
-    </section>
+    </>
   );
 }
