@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Scrollbar, Mousewheel, FreeMode } from 'swiper/modules';
+import { Scrollbar, Mousewheel } from 'swiper/modules';
 import type { Movie } from '../../types/movie';
 import type { FetchMoviesProps } from '../../services/movieService';
 import css from './TypesMovieGrid.module.css';
