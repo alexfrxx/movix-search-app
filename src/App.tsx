@@ -19,7 +19,6 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/policy" element={<PrivacyPolicy />} />
-          <Route path="support" />
           <Route path="*" element={<NotFound />} />
           <Route path="/movies" element={<Movies />} />
         </Route>

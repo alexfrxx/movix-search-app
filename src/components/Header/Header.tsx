@@ -60,11 +60,6 @@ export default function Header() {
                     Terms
                   </Link>
                 </li>
-                <li>
-                  <Link to="/support" className={css.item}>
-                    Support
-                  </Link>
-                </li>
               </ul>
             </div>
 
@@ -97,11 +92,6 @@ export default function Header() {
                 <li>
                   <Link to="/terms" className={css.phoneItem}>
                     Terms
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/support" className={css.phoneItem}>
-                    Support
                   </Link>
                 </li>
               </ul>

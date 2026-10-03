@@ -15,11 +15,7 @@ export default function SupportList() {
           Privacy policy
         </Link>
       </li>
-      <li>
-        <Link to="/support" className={css.supportLink}>
-          Support
-        </Link>
-      </li>
+
       <li>
         <Link to="/contact" className={css.supportLink}>
           Contact us

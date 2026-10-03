@@ -12,6 +12,7 @@ import {
 import TypesMovieGrid from '../TypesMovieGrid/TypesMovieGrid';
 import Hero from '../Hero/Hero';
 import ComingSoon from '../ComingSoon/ComingSoon';
+import AccordionSection from '../AccordionSection/AccordionSection';
 
 export default function AppBody() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -58,7 +59,7 @@ export default function AppBody() {
         title="Coming Soon"
         queryKey="upcoming-movies"
       />
-
+      <AccordionSection />
       {isModalOpen && selectedMovie && (
         <MovieModal onClose={closeModal} movie={selectedMovie}></MovieModal>
       )}
