@@ -76,17 +76,21 @@ src/
 ├── layouts
 │   └── MainLayouts
 │       └── MainLayouts.tsx
+│
 ├── pages
 │   ├── 404/
 │   ├── Contact/
 │   ├── Movies/
 │   ├── PrivacyPolicy/
 │   ├── Support/
-│   ├── Terms/
+│   └── Terms/
+│
 ├── services/
 │   └── movieService.ts
+│
 ├── types/
 │   └── note.ts
+│
 ├── App.tsx
 ├── declaration.d.ts
 ├── index.css
