@@ -31,7 +31,7 @@ export default function TypesMovieGrid({
           <h2 className={css.title}>{title}</h2>
           <Swiper
             spaceBetween={20}
-            slidesPerView={6.4}
+            slidesPerView={1.7}
             modules={[Scrollbar, Mousewheel]}
             scrollbar={{ draggable: true }}
             mousewheel={{
@@ -40,6 +40,26 @@ export default function TypesMovieGrid({
             freeMode={{
               enabled: true,
               momentum: true
+            }}
+            breakpoints={{
+              350: {
+                slidesPerView: 2.1
+              },
+              420: {
+                slidesPerView: 2.5
+              },
+              530: {
+                slidesPerView: 3.2
+              },
+              690: {
+                slidesPerView: 4.4
+              },
+              900: {
+                slidesPerView: 5.4
+              },
+              1100: {
+                slidesPerView: 6.4
+              }
             }}
           >
             {data?.results.map((movie) => (

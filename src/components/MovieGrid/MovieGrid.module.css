@@ -42,3 +42,21 @@
   color: white;
   padding: 10px;
 }
+
+@media (max-width: 470px) {
+  .item {
+    flex: 0 0 170px;
+  }
+  .image {
+    height: 250px;
+  }
+}
+
+@media (max-width: 400px) {
+  .item {
+    flex: 0 0 130px;
+  }
+  .image {
+    height: 200px;
+  }
+}

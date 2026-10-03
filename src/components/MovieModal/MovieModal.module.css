@@ -87,8 +87,9 @@
   width: 20px;
   height: 4px;
   border-radius: 2px;
-  background-color: black;
   transform: rotate(45deg);
+  background-color: red;
+  border: 1px solid black;
 }
 
 .closeButton::after {
@@ -98,6 +99,82 @@
   width: 20px;
   height: 4px;
   border-radius: 2px;
-  background-color: black;
+  background-color: red;
+  border: 1px solid black;
   transform: rotate(-45deg);
+}
+
+@media (max-width: 1030px) {
+  .image {
+    width: 300px;
+  }
+}
+
+@media (max-width: 920px) {
+  .modal {
+    width: 80vw;
+  }
+  .image {
+    width: 200px;
+  }
+}
+
+@media (max-width: 740px) {
+  .modal {
+    width: 80vw;
+  }
+
+  .content {
+    gap: 10px;
+    padding: 30px 20px;
+  }
+
+  .content h2 {
+    font-size: 22px;
+  }
+
+  .content p {
+    font-size: 18px;
+  }
+
+  .content h3,
+  .content strong {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal {
+    width: 90vw;
+    flex-direction: column;
+    max-height: 90vh;
+  }
+
+  .content {
+    border-radius: 0 0 10px 10px;
+  }
+
+  .image {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .content {
+    gap: 10px;
+    padding: 30px 20px;
+  }
+
+  .content h2 {
+    font-size: 20px;
+  }
+
+  .content p {
+    font-size: 16px;
+  }
+
+  .content h3,
+  .content strong {
+    font-size: 17px;
+  }
 }

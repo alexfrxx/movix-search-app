@@ -88,3 +88,15 @@
   color: white;
   padding: 10px;
 }
+
+@media (max-width: 650px) {
+  :global(.swiper-scrollbar-drag) {
+    width: 300px !important;
+  }
+}
+
+@media (max-width: 500px) {
+  :global(.swiper-scrollbar-drag) {
+    width: 210px !important;
+  }
+}
