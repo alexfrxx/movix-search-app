@@ -1,11 +1,11 @@
-import css from './About.module.css';
 import Container from '../../components/Container/Container';
+import ContactForm from '../../components/ContactForm/ContactForm';
 
-export default function About() {
+export default function Contact() {
   return (
     <section>
       <Container>
-        <h1 className={css.title}>About</h1>
+        <ContactForm />
       </Container>
     </section>
   );

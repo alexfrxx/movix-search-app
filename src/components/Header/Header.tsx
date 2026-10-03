@@ -46,11 +46,6 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className={css.item}>
-                    About
-                  </Link>
-                </li>
-                <li>
                   <Link to="/contact" className={css.item}>
                     Contact
                   </Link>
@@ -87,11 +82,6 @@ export default function Header() {
                 <li>
                   <Link to="/" className={css.phoneItem}>
                     Home
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/about" className={css.phoneItem}>
-                    About
                   </Link>
                 </li>
                 <li>
