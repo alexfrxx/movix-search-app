@@ -15,7 +15,7 @@ const initialValues: FormValues = {
 };
 
 const handleSubmit = (
-  values: FormValues,
+  _values: FormValues,
   actions: FormikHelpers<FormValues>
 ) => {
   actions.resetForm();
