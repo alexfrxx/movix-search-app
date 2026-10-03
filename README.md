@@ -71,12 +71,24 @@ src/
 │   ├── MovieGrid/
 │   ├── Pagination/
 │   ├── SearchBar/
-│   ├── TrendingMovieGrid/
-│   └── App.tsx
+│   └── TrendingMovieGrid/
+│
+├── layouts
+│   └── MainLayouts
+│       └── MainLayouts.tsx
+├── pages
+│   ├── 404/
+│   ├── Contact/
+│   ├── Movies/
+│   ├── PrivacyPolicy/
+│   ├── Support/
+│   ├── Terms/
 ├── services/
 │   └── movieService.ts
 ├── types/
 │   └── note.ts
+├── App.tsx
+├── declaration.d.ts
 ├── index.css
 └── main.tsx
 ```
