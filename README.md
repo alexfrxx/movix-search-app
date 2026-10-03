@@ -74,8 +74,8 @@ src/
 │   └── TrendingMovieGrid/
 │
 ├── layouts
-│   └── MainLayouts
-│       └── MainLayouts.tsx
+│   └── MainLayout
+│       └── MainLayout.tsx
 │
 ├── pages
 │   ├── 404/
