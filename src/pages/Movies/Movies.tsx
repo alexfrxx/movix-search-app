@@ -76,8 +76,8 @@ export default function Movies() {
             pageCount={data?.total_pages ?? 0}
             onPageChange={({ selected }) => setPage(selected + 1)}
             pageRangeDisplayed={5}
-            nextLabel="→"
-            previousLabel="←"
+            nextLabel=">"
+            previousLabel="<"
             activeClassName={css.active}
             containerClassName={css.pagination}
             marginPagesDisplayed={1}
