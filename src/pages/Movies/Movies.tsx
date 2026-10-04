@@ -30,7 +30,7 @@ export default function Movies() {
 
   const query = searchParams.get('query') ?? '';
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, isError, isFetching } = useQuery({
     queryKey: ['query', query, page],
     queryFn: () => fetchMovies({ str: query, page }),
     enabled: Boolean(query),
@@ -61,9 +61,10 @@ export default function Movies() {
     <>
       <Toaster position="top-center" reverseOrder={false} />
       <div>
-        {isLoading && <Loader />}
         {isError ? (
           <ErrorMessage />
+        ) : isFetching ? (
+          <Loader />
         ) : (
           <MovieGrid
             onSelect={openModal}
@@ -71,6 +72,7 @@ export default function Movies() {
             title={data?.results ? query : ''}
           />
         )}
+
         {query && data && data.total_pages > 1 && (
           <ReactPaginate
             pageCount={data?.total_pages ?? 0}

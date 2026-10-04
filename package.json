@@ -14,6 +14,7 @@
     "@tanstack/react-query": "^5.102.8",
     "axios": "^1.20.0",
     "formik": "^2.4.9",
+    "framer-motion": "^14.0.0",
     "modern-normalize": "^3.0.1",
     "radix-ui": "^1.6.7",
     "react": "^19.2.8",
