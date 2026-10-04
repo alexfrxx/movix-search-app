@@ -12,6 +12,7 @@ import type { Movie } from '../../types/movie';
 import fetchMovies from '../../services/movieService';
 import type { ReactPaginateProps } from 'react-paginate';
 import type { ComponentType } from 'react';
+import Container from '../../components/Container/Container';
 
 type ModuleWithDefault<T> = { default: T };
 
@@ -58,38 +59,40 @@ export default function Movies() {
   };
 
   return (
-    <>
-      <Toaster position="top-center" reverseOrder={false} />
-      <div>
-        {isError ? (
-          <ErrorMessage />
-        ) : isFetching ? (
-          <Loader />
-        ) : (
-          <MovieGrid
-            onSelect={openModal}
-            movies={data?.results ?? []}
-            title={data?.results ? query : ''}
-          />
-        )}
+    <section>
+      <Container>
+        <Toaster position="top-center" reverseOrder={false} />
+        <div>
+          {isError ? (
+            <ErrorMessage />
+          ) : isFetching ? (
+            <Loader />
+          ) : (
+            <MovieGrid
+              onSelect={openModal}
+              movies={data?.results ?? []}
+              title={data?.results ? query : ''}
+            />
+          )}
 
-        {query && data && data.total_pages > 1 && (
-          <ReactPaginate
-            pageCount={data?.total_pages ?? 0}
-            onPageChange={({ selected }) => setPage(selected + 1)}
-            pageRangeDisplayed={5}
-            nextLabel=">"
-            previousLabel="<"
-            activeClassName={css.active}
-            containerClassName={css.pagination}
-            marginPagesDisplayed={1}
-            forcePage={page - 1}
-          />
+          {query && data && data.total_pages > 1 && (
+            <ReactPaginate
+              pageCount={data?.total_pages ?? 0}
+              onPageChange={({ selected }) => setPage(selected + 1)}
+              pageRangeDisplayed={5}
+              nextLabel=">"
+              previousLabel="<"
+              activeClassName={css.active}
+              containerClassName={css.pagination}
+              marginPagesDisplayed={1}
+              forcePage={page - 1}
+            />
+          )}
+        </div>
+        {isModalOpen && selectedMovie && (
+          <MovieModal onClose={closeModal} movie={selectedMovie}></MovieModal>
         )}
-      </div>
-      {isModalOpen && selectedMovie && (
-        <MovieModal onClose={closeModal} movie={selectedMovie}></MovieModal>
-      )}
-    </>
+      </Container>
+    </section>
   );
 }

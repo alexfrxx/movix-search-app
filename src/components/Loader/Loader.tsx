@@ -1,25 +1,18 @@
-import { motion } from 'framer-motion';
+import { Audio } from 'react-loader-spinner';
+import css from './Loader.module.css';
 
 export default function Loader() {
   return (
-    <div className="flex items-center justify-center space-x-1">
-      {[...Array(7)].map((_, index) => (
-        <motion.div
-          key={index}
-          className="h-8 w-2 rounded-full bg-red-500"
-          animate={{
-            scaleY: [0.5, 1.5, 0.5],
-            scaleX: [1, 0.8, 1],
-            translateY: ['0%', '-15%', '0%']
-          }}
-          transition={{
-            duration: 1,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: index * 0.1
-          }}
-        />
-      ))}
+    <div className={css.loader}>
+      <Audio
+        height="55"
+        width="85"
+        color="red"
+        ariaLabel="audio-loading"
+        wrapperStyle={{}}
+        wrapperClass="wrapper-class"
+        visible={true}
+      />
     </div>
   );
 }

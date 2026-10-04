@@ -32,10 +32,10 @@
 
 @media (max-width: 600px) {
   .pagination {
-    gap: 15px;
+    gap: 10px;
   }
 
   .pagination a {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
