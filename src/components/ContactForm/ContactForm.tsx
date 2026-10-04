@@ -1,5 +1,6 @@
 import { Formik, Form, Field, type FormikHelpers, ErrorMessage } from 'formik';
 import { useId } from 'react';
+import * as Yup from 'yup';
 import css from './ContactForm.module.css';
 
 interface FormValues {
@@ -14,6 +15,12 @@ const initialValues: FormValues = {
   message: ''
 };
 
+const validationSchema = Yup.object().shape({
+  name: Yup.string().min(2).max(15).required(),
+  email: Yup.string().max(50).email().required(),
+  message: Yup.string().max(500)
+});
+
 const handleSubmit = (
   _values: FormValues,
   actions: FormikHelpers<FormValues>
@@ -26,7 +33,11 @@ export default function ContactForm() {
 
   return (
     <>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
+      >
         <Form className={css.form}>
           <div className={css.formGroup}>
             <label htmlFor={`${id}-name`} className={css.label}>
