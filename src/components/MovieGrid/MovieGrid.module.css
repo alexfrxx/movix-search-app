@@ -44,17 +44,30 @@
 }
 
 @media (max-width: 470px) {
+  .grid {
+    gap: 15px;
+  }
+
+  .item {
+    flex: 0 0 185px;
+  }
+  .image {
+    height: 270px;
+  }
+}
+
+@media (max-width: 425px) {
   .item {
     flex: 0 0 170px;
   }
   .image {
-    height: 250px;
+    height: 240px;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 395px) {
   .item {
-    flex: 0 0 130px;
+    flex: 0 0 135px;
   }
   .image {
     height: 200px;
