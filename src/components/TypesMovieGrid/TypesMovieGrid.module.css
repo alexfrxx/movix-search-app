@@ -41,7 +41,6 @@
 :global(.swiper-scrollbar-drag) {
   border-radius: 4px !important;
   background-color: #8a8a8a !important;
-  width: 450px !important;
   opacity: 0.7 !important;
 }
 
@@ -87,16 +86,4 @@
   font-size: 14px;
   color: white;
   padding: 10px;
-}
-
-@media (max-width: 650px) {
-  :global(.swiper-scrollbar-drag) {
-    width: 300px !important;
-  }
-}
-
-@media (max-width: 500px) {
-  :global(.swiper-scrollbar-drag) {
-    width: 210px !important;
-  }
 }

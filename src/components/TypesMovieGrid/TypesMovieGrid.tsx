@@ -43,9 +43,6 @@ export default function TypesMovieGrid({
             }}
             breakpoints={{
               350: {
-                slidesPerView: 1.6
-              },
-              400: {
                 slidesPerView: 2.3
               },
               530: {
